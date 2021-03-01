@@ -1,0 +1,13 @@
+{
+  "appId": "com.adriansalvador.arelapp",
+  "appName": "arelApp",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

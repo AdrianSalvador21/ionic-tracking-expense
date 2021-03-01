@@ -1,0 +1,28 @@
+[
+  {
+    "icon": "navigate-circle-outline",
+    "name": "Reportes",
+    "redirectTo": "/dashboard-menu/reports"
+    },
+  {
+    "icon": "reader-outline",
+    "name": "Facturas",
+    "redirectTo": "/dashboard-menu/home"
+  },
+  {
+    "icon": "pricetag-outline",
+    "name": "Pagos de anticipo",
+    "redirectTo": "/dashboard-menu/home"
+  },
+  {
+    "icon": "bar-chart-outline",
+    "name": "Análisis",
+    "redirectTo": "/dashboard-menu/home"
+  },
+  {
+    "icon": "bar-chart-outline",
+    "name": "Politicas",
+    "redirectTo": "/dashboard-menu/expense-policies"
+  }
+]
+

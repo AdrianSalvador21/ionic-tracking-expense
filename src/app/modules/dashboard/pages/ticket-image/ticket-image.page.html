@@ -1,0 +1,34 @@
+<ion-header class="ion-no-border" mode="md">
+    <ion-toolbar>
+        <ion-buttons slot="start" (click)="closeModal()">
+            <ion-back-button defaultHref="/dashboard-tabs-menu/report-details" color="primary"></ion-back-button>
+        </ion-buttons>
+
+        <ion-title>{{expenseData.expenseValues['Comerciante']}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-row style="margin-bottom: 4rem;">
+        <ion-col size="12">
+            <ion-card *ngIf="expenseData?.ticket?.googleFile?.url; else noImage" style="margin: 0 !important; margin-top: 2rem !important; margin-bottom: 2rem !important; box-shadow: none !important;" class="display-center">
+
+                <img style=" width: 80% !important; height:auto !important;" class="preview-img" *ngIf="expenseData?.ticket?.googleFile?.url" [src]="expenseData?.ticket?.googleFile?.url | imageSanitizer" alt="img2" />
+            </ion-card>
+        </ion-col>
+    </ion-row>
+
+    <div class="row button-container-fixed-bottom">
+        <div class="col-12 text-center m-t-20-r display-center">
+            <button class="btn delete-button" id="preapproval_start">
+        Eliminar
+      </button>
+        </div>
+    </div>
+
+</ion-content>
+
+<ng-template #noImage>
+    <p>Este gasto aún no cuenta con un ticket.</p>
+</ng-template>

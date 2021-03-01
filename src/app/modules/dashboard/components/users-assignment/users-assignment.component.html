@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-12 col-md-6 display-center mb-2">
+    <div class="card" style="width: 100%;">
+      <div class="card-body user-assg-card">
+        <h5 class="card-title">Presupuesto asignado</h5>
+        <h6 class="card-subtitle mb-2 text-muted">$15,000 MXN</h6>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-6 display-center">
+    <div class="card" style="width: 100%;">
+      <div class="card-body user-assg-card">
+        <h5 class="card-title">Días para regresar el sobrante</h5>
+        <h6 class="card-subtitle mb-2 text-muted">15 días</h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-12 col-md-6 display-center mb-2">
+    <div class="card" style="width: 100%;">
+      <div class="card-body user-assg-card">
+        <h5 class="card-title">Asignar política a empleados</h5>
+        <div class="form-group m-0">
+          <input type="email" placeholder="Buscar" class="form-control input-md" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+
+        <div class="user-assg-img-container">
+          <div [ngStyle]="{'background': 'url(' + userImage + ') no-repeat center center', 'background-size': 'cover'}" class="user-assg-img"></div>
+          <p class="m-0">Chuck Morales</p>
+        </div>
+
+        <div class="user-assg-img-container">
+          <div [ngStyle]="{'background': 'url(' + userImage + ') no-repeat center center', 'background-size': 'cover'}" class="user-assg-img"></div>
+          <p class="m-0">Contra Alvarado</p>
+        </div>
+
+        <div class="user-assg-img-container">
+          <div [ngStyle]="{'background': 'url(' + userImage + ') no-repeat center center', 'background-size': 'cover'}" class="user-assg-img"></div>
+          <p class="m-0">Jesus Alejandro</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-6" style="display: flex; justify-content: center; align-items: flex-start">
+    <div class="card" style="width: 100%;">
+      <div class="card-body user-assg-card">
+        <h5 class="card-title">Personas agregadas</h5>
+
+        <div class="user-assg-img-container">
+          <div [ngStyle]="{'background': 'url(' + userImage + ') no-repeat center center', 'background-size': 'cover'}" class="user-assg-img"></div>
+          <p class="m-0">Chuck Morales</p>
+        </div>
+
+        <div class="user-assg-img-container">
+          <div [ngStyle]="{'background': 'url(' + userImage + ') no-repeat center center', 'background-size': 'cover'}" class="user-assg-img"></div>
+          <p class="m-0">Contra Alvarado</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="button-container">
+  <ion-button color="primary">Continuar</ion-button>
+  <ion-button color="danger">Cancelar</ion-button>
+</div>
+

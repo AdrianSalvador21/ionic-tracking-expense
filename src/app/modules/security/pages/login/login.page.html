@@ -1,0 +1,51 @@
+<ion-header class="ion-no-border" mode="md">
+    <ion-toolbar color="secondary">
+        <ion-title slot="start">
+            <img style="width: 4.5rem;" alt="logo" src="assets/images/public/branding/logo.svg" />
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary">
+
+    <div class="row login-container container display-center">
+        <div class="col-12" style="padding: 0 20px;">
+            <div class="display-center">
+                <ion-text color="tertiary">
+                    <h3 class="w-100">Inicio de sesión</h3>
+                </ion-text>
+            </div>
+        </div>
+
+        <div class="col-12" style="padding: 0 20px;">
+            <div>
+                <form>
+                    <!-- <mat-form-field class="w-100" appearance="fill" style="margin-bottom: 0 !important;">
+                        <mat-label>Usuario</mat-label>
+                        <input matInput placeholder="Usuario" required autocomplete="off">
+                    </mat-form-field> -->
+                    <ion-item color="secondary" class="ion-margin-bottom">
+                        <ion-label color="tertiary" position="stacked">Correo electrónico</ion-label>
+                        <ion-input color="tertiary" placeholder="Usuario" autocomplete="off" [(ngModel)]="loginObjec.user" name="user"></ion-input>
+                    </ion-item>
+
+
+                    <ion-item class="mt-1" color="secondary" class="ion-margin-bottom">
+                        <ion-label color="tertiary" position="stacked">Contraseña</ion-label>
+                        <ion-input color="tertiary" type="password" placeholder="Contraseña" autocomplete="off" [(ngModel)]="loginObjec.password" name="password"></ion-input>
+                    </ion-item>
+
+                    <div class="ion-text-end ion-margin-bottom" *ngIf="invalidUser">
+                        <ion-text color="danger">Usuario o contraseña incorrectos.</ion-text>
+                    </div>
+
+                    <!-- <button class="login-button" (click)="logIn()">Entrar</button> -->
+                    <ion-button (click)="logIn()" class="mt-2" color="primary" expand="block" shape="round">Entrar</ion-button>
+                </form>
+
+                <!-- <p class="w-100 forgot-label">¿Olvidaste tu contraseña?</p> -->
+                <ion-text class="forgot-label w-100 ion-text-center">¿Olvidaste tu contraseña?</ion-text>
+            </div>
+        </div>
+    </div>
+</ion-content>

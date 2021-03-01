@@ -1,0 +1,7 @@
+{
+  "name": "arelApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

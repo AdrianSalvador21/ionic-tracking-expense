@@ -1,0 +1,48 @@
+<ion-header class="ion-no-border" mode="md">
+    <ion-toolbar color="secondary">
+        <ion-buttons slot="start" (click)="closeModal()">
+            <ion-back-button defaultHref="/dashboard-tabs-menu/report-details" color="primary"></ion-back-button>
+        </ion-buttons>
+
+        <ion-title>{{expenseData.categoryName}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary">
+    <div class="expense-detail-title">
+        <div>
+            <ion-text color="tertiary">
+                <h3>{{expenseData.expenseValues['Comerciante']}}</h3>
+            </ion-text>
+            <ion-text color="tertiary">{{expenseData.expenseValues['Fecha'] | date: 'dd/MM/yyyy'}}</ion-text>
+
+        </div>
+
+        <!-- <mat-icon style="font-size: 1.5rem;height: 1.5rem; width: 1.5rem; font-weight: 300; color: black;">more_vert</mat-icon> -->
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" style="background:none !important;">
+          <mat-icon style="font-size: 1.5rem;height: 1.5rem; width: 1.5rem; font-weight: 300; color: black;">more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button (click)="goToEditExpense()" mat-menu-item>
+            <mat-icon>edit</mat-icon>
+            <span>Editar Gasto</span>
+          </button>
+
+        </mat-menu>
+    </div>
+
+    <div class="mt-2r">
+        <app-expense-detail-cards [expenseData]="expenseData"></app-expense-detail-cards>
+        <!-- <mat-tab-group mat-align-tabs="center">
+      <mat-tab label="Resumen">
+        <app-expense-detail-cards [expenseData]="expenseData"></app-expense-detail-cards>
+      </mat-tab>
+      <mat-tab label="Mensajes">
+        <app-expense-messages></app-expense-messages>
+      </mat-tab>
+      <mat-tab label="Historial">
+        <app-expense-history></app-expense-history>
+      </mat-tab>
+    </mat-tab-group> -->
+    </div>
+</ion-content>

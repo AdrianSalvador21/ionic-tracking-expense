@@ -1,0 +1,69 @@
+<app-dashboard-header title="Reportes"></app-dashboard-header>
+
+<ion-content color="light">
+    <!-- <button (click)="setUser()">1</button>
+  <button (click)="setProperty()">2</button>
+  <button (click)="logEvent()">3</button>
+  <button (click)="toggleDataCollection()">4</button> -->
+
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <div style="padding-bottom: 5rem;">
+        <ion-card color="secondary" class="basic-card mt-2r" (click)="reportDetail(report)" *ngFor="let report of reports, let i = index" [ngClass]="{'mb-2r': i === 4}">
+            <ion-card-content class="ft-13">
+                <ion-text color="tertiary" class="ft-12">#{{report.reportFormartPrefix}}-{{report.externalId}}</ion-text>
+                <div class="report-header">
+                    <p>{{report.reportValues['Título']}}</p>
+                    <!-- <p>$36,700</p> -->
+                    <p></p>
+                </div>
+                <ion-text color="tertiary">Del {{report.reportValues['Fecha de inicio del viaje'] | date: 'dd/MM/yyyy'}} al {{report.reportValues['Fecha de termino del viaje'] | date: 'dd/MM/yyyy'}}</ion-text>
+
+                <!-- <div class="report-detail">
+          <div class="report-notification-container">5</div>
+          <p class="m-0 report-error">Posibles errores de factura</p>
+        </div> -->
+
+                <!-- <div class="report-detail">
+          <div class="report-notification-container">3</div>
+          <p class="m-0">Nuevos comentarios</p>
+        </div> -->
+
+                <hr />
+
+                <div class="report-footer">
+                    <ion-text color="tertiary" style="font-weight: 700;">Aprobador: <span class="black-text">{{report.approver.name}} {{report.approver.apellidoPaterno}}</span></ion-text>
+                    <ion-text color="tertiary" class="m-0 p-0">Estatus: <span class="m-0" [ngClass]="setStatusClass(report.reportStatus)">{{setStatusLabel(report.reportStatus)}}</span></ion-text>
+                </div>
+            </ion-card-content>
+        </ion-card>
+
+        <div class="report-detail-container" *ngIf="reports.length === 0">
+            <div class="report-expense-container w-100">
+                <p class="mb-0 text-muted" style="text-align: center;">Aún no tienes reportes agregados</p>
+            </div>
+        </div>
+    </div>
+
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" style="margin-bottom: 3.5rem; !important;">
+
+        <ion-fab-button>
+            <ion-icon name="add-outline"></ion-icon>
+        </ion-fab-button>
+
+        <ion-fab-list side="top">
+            <!--<ion-fab-button class="option-button" data-desc="Nuevo Reporte" (click)="newReport()">
+        <ion-icon name="reader-outline"></ion-icon>
+      </ion-fab-button> -->
+
+            <ion-fab-button class="option-button" data-desc="Nuevo Reporte" (click)="newReport2()">
+                <ion-icon name="reader-outline"></ion-icon>
+            </ion-fab-button>
+        </ion-fab-list>
+
+    </ion-fab>
+
+</ion-content>

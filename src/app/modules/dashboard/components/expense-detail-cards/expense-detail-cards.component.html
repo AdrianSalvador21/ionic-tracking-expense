@@ -1,0 +1,144 @@
+<div class="mt-2r">
+    <div class="expense-detail-card">
+        <div>
+            <ion-text color="tertiary">
+                <h4 class="main-title">Monto gastado</h4>
+            </ion-text>
+            <ion-text color="tertiary">
+                <p class="mb-0 amount">${{expenseData.expenseValues['Monto'] | number: '1.0-2'}}</p>
+            </ion-text>
+        </div>
+
+        <!-- <div>
+            <h4>Método de pago</h4>
+            <p class="mb-0">{{invoiceData?.metodoPago}}</p>
+        </div> -->
+
+        <div>
+            <ion-text color="tertiary">
+                <h4>Descripción</h4>
+            </ion-text>
+            <ion-text color="tertiary">
+                <p class="mb-0">{{expenseData.expenseValues['Descripción']}}</p>
+            </ion-text>
+        </div>
+
+        <hr class="basic-hr" />
+    </div>
+
+
+    <!-- <div class="expense-detail-card">
+        <div>
+            <h4 class="main-title">Alertas</h4>
+        </div>
+
+        <div>
+            <h4>RFC mal escrito</h4>
+        </div>
+
+        <div>
+            <h4>Se supera monto diario permitido por el SAT</h4>
+        </div>
+
+        <div>
+            <h4>Método de pago en efectivo</h4>
+        </div>
+
+        <hr class="basic-hr" />
+    </div> -->
+
+
+    <!-- <div class="expense-detail-card">
+    <div>
+      <h4 class="main-title">Datos emisor</h4>
+    </div>
+
+
+    <div>
+      <h4>RFC</h4>
+      <p class="mb-0">{{invoiceData?.emisor?.rfc | uppercase}}</p>
+    </div>
+
+    <div>
+      <h4>Régimen Fiscal</h4>
+      <p class="mb-0">{{invoiceData?.emisor?.regimenFiscal}}</p>
+    </div>
+
+    <div>
+      <h4>Fecha</h4>
+      <p class="mb-0">{{invoiceData?.fechaTimbrado | date: 'dd/MM/yyyy'}}</p>
+    </div>
+  </div> -->
+
+    <!-- <div class="expense-detail-card">
+    <div>
+      <h4 class="main-title">Datos receptor</h4>
+    </div>
+
+    <div>
+      <h4>Nombre</h4>
+      <p class="mb-0">{{invoiceData?.receptor?.nombre | titlecase}}</p>
+    </div>
+
+    <div>
+      <h4>RFC</h4>
+      <p class="mb-0">{{invoiceData?.receptor?.rfc | uppercase}}</p>
+    </div>
+  </div> -->
+
+    <div class="expense-detail-card">
+        <div>
+            <ion-text color="tertiary">
+                <h4 class="main-title">Datos factura</h4>
+            </ion-text>
+        </div>
+
+        <div>
+            <ion-text color="tertiary">
+                <h4>RFC emitido</h4>
+            </ion-text>
+            <ion-text color="tertiary">
+                <p class="mb-0">{{invoiceData?.emisor?.rfc}}</p>
+            </ion-text>
+        </div>
+
+        <div>
+            <ion-text color="tertiary">
+                <h4>Fecha</h4>
+            </ion-text>
+            <ion-text color="tertiary">
+                <p class="mb-0">{{invoiceData?.fechaTimbrado | date: 'dd/MM/yyyy'}}</p>
+            </ion-text>
+        </div>
+
+        <div>
+            <ion-text color="tertiary">
+                <h4>RFC emisor</h4>
+            </ion-text>
+            <ion-text color="tertiary">
+                <p class="mb-0">{{invoiceData?.receptor?.rfc | uppercase}}</p>
+            </ion-text>
+        </div>
+
+        <hr class="basic-hr" />
+
+    </div>
+
+    <div class="expense-detail-card">
+        <div>
+            <ion-text color="tertiary">
+                <h4 class="main-title">Fecha de creación del gasto</h4>
+            </ion-text>
+            <ion-text color="tertiary">
+                <p class="mb-0 amount">{{expenseData.createdDateTime | date: 'dd/MM/yyyy'}}</p>
+            </ion-text>
+        </div>
+    </div>
+
+    <div class="button-container button-container-fixed-bottom display-center mt-3" style="margin-bottom: 4rem; margin-top: 2rem !important;">
+        <ion-button class="new-report-button primary" (click)="goToInvoice()">Ver factura</ion-button>
+        <ion-button class="new-report-button primary mr-0" (click)="goToTicket()">Ver ticket</ion-button>
+    </div>
+
+
+</div>

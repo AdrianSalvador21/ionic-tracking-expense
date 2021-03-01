@@ -1,0 +1,28 @@
+.login-image {
+    width: 7rem;
+}
+
+.login-container {
+    margin: 3rem 0 1rem 0;
+    padding: 0;
+    .login-button {
+        width: 100%;
+        background-color: #1d2542;
+        color: white;
+        padding: 14px 10px 14px 10px;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+}
+
+.forgot-label {
+    // color: #1d2542;
+    text-align: center;
+    padding: 1rem;
+    font-size: 15px;
+    text-decoration: underline;
+}

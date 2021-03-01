@@ -1,0 +1,100 @@
+<ion-header class="ion-no-border" mode="md">
+    <ion-toolbar>
+        <ion-buttons slot="start" (click)="closeModal()">
+            <ion-back-button defaultHref="/dashboard-tabs-menu/report-details" color="primary"></ion-back-button>
+        </ion-buttons>
+
+        <ion-title>Factura</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="expense-detail-title">
+        <div>
+            <h3>{{invoiceData.emisor.nombre}}</h3>
+            <p class="text-muted">{{invoiceData.fechaTimbrado | date: 'dd/MM/yyyy' }}</p>
+        </div>
+    </div>
+
+    <div class="mt-2r">
+        <div class="expense-detail-card">
+            <div>
+                <h4 class="main-title">Datos de la factura</h4>
+            </div>
+
+
+            <div>
+                <h4 class="f-bold">Importe total</h4>
+                <p class="mb-0">${{invoiceData.subTotal}}</p>
+            </div>
+
+            <div>
+                <h4 class="f-bold">Lugar de expedición</h4>
+                <p class="mb-0">{{invoiceData.lugarExpedicion}}</p>
+            </div>
+
+            <div>
+                <h4 class="f-bold">Fecha de expedición</h4>
+                <p class="mb-0">{{invoiceData.fechaTimbrado | date: 'dd/MM/yyyy' }}</p>
+            </div>
+
+            <div>
+                <h4 class="f-bold">Certificado Sello Digital</h4>
+                <p class="mb-0">{{invoiceData.fechaTimbrado}}</p>
+            </div>
+
+            <div>
+                <h4 class="f-bold">Valor unitario</h4>
+                <p class="mb-0">{{invoiceData.fechaTimbrado}}</p>
+            </div>
+
+            <div>
+                <h4 class="f-bold">Metodo de pago</h4>
+                <p class="mb-0">{{invoiceData.metodoPago}}</p>
+            </div>
+
+            <hr class="basic-hr" />
+        </div>
+
+
+        <div class="expense-detail-card">
+            <div>
+                <h4 class="main-title">Datos del emisor</h4>
+            </div>
+
+
+            <div>
+                <h4 class="f-bold">RFC</h4>
+                <p class="mb-0">{{invoiceData.emisor.rfc}}</p>
+            </div>
+
+
+            <div>
+                <h4 class="f-bold">Régimen Fiscal</h4>
+                <p class="mb-0">{{invoiceData.emisor.regimenFiscal}}</p>
+            </div>
+
+            <hr class="basic-hr" />
+        </div>
+
+        <div class="expense-detail-card">
+            <div>
+                <h4 class="main-title">Datos del receptor</h4>
+            </div>
+
+
+            <div>
+                <h4 class="f-bold">RFC</h4>
+                <p class="mb-0">{{invoiceData.receptor.rfc}}</p>
+            </div>
+
+            <hr class="basic-hr" />
+        </div>
+<!--
+        <div class="button-container button-container-fixed-bottom display-center mt-3" style="margin-bottom: 4rem; margin-top: 2rem !important;">
+            <ion-button class="new-report-button primary" (click)="previewInvoice()">Ver original</ion-button>
+        </div>-->
+
+    </div>
+</ion-content>

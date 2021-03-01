@@ -1,0 +1,55 @@
+
+.slide-full {
+  // height: 100% !important;
+}
+
+ion-card {
+  overflow: unset !important;
+}
+
+ion-card {
+  height: 360px;
+  width: 300px;
+  margin-top: 10rem !important;
+}
+
+.slide-image {
+  width: 100px;
+  text-align: center;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  position: relative;
+  top: -50px;
+}
+
+ion-card-header {
+  position: relative;
+  top: -50px;
+}
+
+ion-card-content {
+  position: relative;
+  top: -50px;
+}
+
+.avatar {
+  width: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.next-button {
+  color: white;
+  background-color: #1d2542;
+  min-width: 9rem;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.my-custom-interface .select-interface-option {
+  color: red;
+}

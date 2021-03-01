@@ -1,0 +1,34 @@
+.nr-container {
+  padding: 1rem 1.6rem;
+  background-color: white;
+}
+
+.nr-title {
+  font-size: 25px;
+  font-weight: 800;
+  margin-bottom: 0;
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+.nr-subtitle {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.new-report-button {
+  width: 8.5rem;
+  font-weight: 700;
+  --box-shadow: none !important;
+}
+
+.new-report-button.primary {
+  --background: #1d2542;
+}
+
+.new-report-button.secondary {
+  --color:  #1d2542;
+  --background: white;
+  --border-color: #1d2542;
+  border: 1px solid;
+  border-radius: var(--border-radius);
+}

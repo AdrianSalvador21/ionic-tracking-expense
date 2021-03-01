@@ -1,0 +1,75 @@
+<ion-header class="ion-no-border" mode="md">
+    <ion-toolbar color="secondary">
+        <ion-buttons slot="start">
+            <ion-back-button *ngIf="expenseFormatId" defaultHref="/dashboard-tabs-menu/new-expense" color="primary"></ion-back-button>
+        </ion-buttons>
+
+        <ion-title>Facturas</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <!--
+    <div class="report-chips-container">
+        <p>Ordenar por:</p>
+        <mat-chip-list #chipList aria-label="Filters selection">
+            <mat-chip *ngFor="let filter of filters" [selectable]="selectable" [removable]="removable" (removed)="remove(filter)">
+                {{filter.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+        </mat-chip-list>
+    </div>-->
+
+    <div class="report-detail-container" style="padding-bottom: 1rem;" *ngFor="let invoice of invoices, let i = index">
+        <p class="report-section-chip">{{invoice.fechaTimbrado | date: 'dd/MM/yyyy'}}</p>
+        <div class="report-expense-container mb-0 w-100" (click)="goToInvoiceDetail(invoice)">
+            <div class="detail">
+                <div class="invoice-title">
+                    <h3>{{invoice.emisor.nombre | titlecase}}</h3>
+                </div>
+            </div>
+            <p class="text-muted ft-12">{{invoice.fechaTimbrado | date: 'shortTime'}}</p>
+            <p class="mt-2" style="font-size: 15px;">${{invoice.subTotal | number: '1.1-2'}}</p>
+            <hr class="basic-hr" style="margin-bottom: 11px;" />
+            <!-- <p class="danger">Error en la factura</p> -->
+        </div>
+    </div>
+
+    <!-- <div class="report-detail-container" style="padding-bottom: 1rem;">
+    <p class="report-section-chip">19 ago 2020</p>
+    <div class="report-expense-container mb-0 w-100" *ngFor="let item of [1,1], let i = index">
+      <div class="detail">
+        <div class="invoice-title">
+          <h3>Hotel Los Flamingos</h3>
+          <p class="text-muted">10:25am</p>
+        </div>
+        <p class="amount">$4000</p>
+      </div>
+      <p>Todo en orden</p>
+      <hr class="basic-hr"/>
+    </div>
+  </div> -->
+
+    <!-- <div class="report-detail-container" style="padding-bottom: 5rem;">
+    <p class="report-section-chip">21 ago 2020</p>
+    <div class="report-expense-container mb-0 w-100" *ngFor="let item of [1,1], let i = index">
+      <div class="detail">
+        <div class="invoice-title">
+          <h3>ADO</h3>
+          <p class="text-muted">10:15am</p>
+        </div>
+        <p class="amount">$150</p>
+      </div>
+      <p class="danger">Todo en orden</p>
+      <hr class="basic-hr"/>
+    </div>
+  </div>
+  -->
+
+
+</ion-content>

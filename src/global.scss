@@ -1,0 +1,407 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+
+/* Core CSS required for Ionic components to work properly */
+
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+* {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+ion-title {
+    font-weight: 700 !important;
+}
+
+.m-0 {
+    margin: 0 !important;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mt-2r {
+    margin-top: 1.5rem !important;
+}
+
+.mb-6r {
+    margin-bottom: 6rem !important;
+}
+
+.mb-2r {
+    margin-bottom: 2rem !important;
+}
+
+.ft-12 {
+    font-size: 12px;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.black-text {
+    color: #000;
+}
+
+.primary-text {
+    color: #08846a;
+}
+
+.display-flex,
+.display-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.basic-card {
+    margin: 0;
+    box-shadow: none !important;
+}
+
+.custom-textarea {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgb(73, 80, 87);
+    background-color: rgb(255, 255, 255);
+    background-clip: padding-box;
+    border: 1px solid rgb(206, 212, 218);
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: auto;
+}
+
+.mat-snack-bar-container {
+    background: #00A482 !important;
+}
+
+.mat-simple-snackbar-action {
+    color: #fff !important;
+}
+
+
+/*
+mat-step-header {
+  .mat-step-icon.mat-step-icon-state-number.mat-step-icon-selected {
+    display: none !important;
+  }
+
+  .mat-step-icon.mat-step-icon-state-edit {
+    display: none !important;
+  }
+
+  .mat-step-icon.mat-step-icon-state-number {
+    display: none !important;
+  }
+}
+
+ */
+
+mat-step-header {
+    .mat-step-icon.mat-step-icon-state-number.mat-step-icon-selected {
+        background-color: #00a482;
+    }
+    .mat-step-icon.mat-step-icon-state-edit {
+        background-color: #00a482;
+    }
+    .mat-step-icon.mat-step-icon-state-number {
+        background-color: #00a482;
+    }
+}
+
+.mat-expansion-panel-body {
+    // background-color: #009473 !important;
+    padding: 0 !important;
+}
+
+.mat-expansion-indicator::after {
+    // color: white !important;
+}
+
+.mat-vertical-content-container {
+    margin-left: 5px !important;
+}
+
+.mat-vertical-content-container::before {
+    display: none !important;
+}
+
+.button-container {
+    display: flex;
+    margin-top: 1rem;
+    ion-button {
+        text-transform: capitalize !important;
+        margin-right: 1rem;
+    }
+}
+
+.mat-select-panel {
+    min-width: 90% !important;
+    margin-left: 1rem !important;
+}
+
+.mat-form-field {
+    margin-bottom: 1.1rem !important;
+}
+
+.mat-form-field-label {
+    font-weight: 600 !important;
+    // color: #020202 !important;
+    // color: #020202b8 !important;
+}
+
+.mat-form-field-required-marker {
+    color: #ff3c2f !important;
+}
+
+.mat-input-element,
+.mat-select-value {
+    // color: #6f6f6f !important;
+    font-weight: 700 !important;
+}
+
+.material-icons {
+    font-family: 'Material Icons' !important;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #03a582 !important;
+}
+
+.mat-tab-label-active {
+    .mat-tab-label-content {
+        color: #02654f !important;
+        font-weight: 700;
+    }
+}
+
+.mat-tab-nav-bar,
+.mat-tab-header {
+    border-bottom: none !important;
+}
+
+.subcategories-table {
+    .mat-header-row {
+        // position: absolute !important;
+        // display: none !important;
+        background-color: transparent;
+    }
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #03a582 !important;
+}
+
+.basic-hr {
+    background-color: #bfbebe;
+}
+
+.notification-position {
+    position: absolute;
+    left: 16px;
+    top: -6px;
+    color: white;
+    background-color: #06a682;
+    width: 0.9rem;
+    height: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 10px;
+}
+
+.report-chips-container {
+    .mat-standard-chip .mat-chip-remove.mat-icon {
+        width: 15px !important;
+        height: 15px !important;
+        font-size: 15px !important;
+    }
+}
+
+.button-container-fixed {
+    position: fixed;
+    bottom: 3.5rem;
+    left: 0;
+    width: 100vw;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    margin: 0!important;
+    height: 72px;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, .98);
+    text-align: center;
+    box-shadow: 0 -2px 3px 0 rgba(201, 201, 201, .2);
+}
+
+.button-container-fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    margin: 0!important;
+    height: 72px;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, .98);
+    text-align: center;
+    box-shadow: 0 -2px 3px 0 rgba(201, 201, 201, .2);
+}
+
+.btn:focus,
+.btn:active,
+.btn:hover {
+    outline: none !important;
+}
+
+ion-fab-button.option-button {
+    --background: white !important;
+    --color: black !important;
+}
+
+ion-fab-button[data-desc] {
+    position: relative;
+}
+
+ion-fab-button[data-desc]::after {
+    position: absolute;
+    content: attr(data-desc);
+    z-index: 1;
+    right: 46px;
+    bottom: 4px;
+    background-color: #ffffff;
+    padding: 6px;
+    border-radius: 10px;
+    font-size: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+    border: none;
+    color: #1d2542;
+    font-weight: 700;
+}
+
+ion-button {
+    --box-shadow: none !important;
+}
+
+ion-title {
+    color: #1e2642;
+    font-weight: 800 !important;
+}
+
+.sc-ion-action-sheet-md-h {
+    --height: 40% !important;
+}
+
+.loader,
+.request-loader {
+    position: absolute;
+    left: calc(50% - 24px);
+    background: url('/assets/images/public/branding/icon-nofill.svg') center center no-repeat;
+    background-size: 47px 47px;
+    width: 36px;
+    height: 36px;
+}
+
+.loader {
+    top: 45vh;
+}
+
+.request-loader {
+    top: -140px;
+}
+
+.circular {
+    position: absolute;
+    background: transparent;
+    -webkit-animation: rotate 2s linear infinite;
+    animation: rotate 2s linear infinite;
+    top: -18px;
+    left: calc(50% - 39px);
+    width: 75px;
+    height: 75px;
+    border: 3px solid transparent !important;
+    border-top-color: #1e2642 !important;
+    border-radius: 50% !important;
+}
+
+.path {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35;
+    -webkit-animation: dash 3s ease-in-out infinite, color 6s ease-in-out infinite;
+    animation: dash 3s ease-in-out infinite, color 6s ease-in-out infinite;
+    stroke-linecap: round;
+}
+
+.loader {
+    display: none;
+    visibility: hidden;
+}
+
+app-root:empty+.loader {
+    display: block;
+    visibility: visible;
+}
+
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.simple-notification.success {
+    background: #00a482 !important;
+}
+
+.simple-notification.success .sn-progress-loader span {
+    background: #00563e !important;
+}
+
+.my-custom-interface .select-interface-option {
+    color: red !important;
+}

@@ -1,0 +1,51 @@
+.expense-detail-card {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 10px;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h4 {
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 13px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+
+  .main-title {
+    color: #03a582;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .amount {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+}
+
+.new-report-button {
+  width: 9rem;
+  font-weight: 700;
+  font-size: 0.9rem !important;
+  --box-shadow: none !important;
+}
+
+.new-report-button.primary {
+  --background: #1d2542;
+}
+
+.new-report-button.secondary {
+  --color:  #1d2542;
+  --background: white;
+  --border-color: #1d2542;
+  border: 1px solid;
+  border-radius: var(--border-radius);
+}
+

@@ -1,0 +1,70 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard-menu/expense-policies" color="primary"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Nueva política de viaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <div class="">
+    <!-- <p class="">Creación de una política de viaje</p> -->
+  </div>
+  <mat-vertical-stepper class="" [linear]="false" #stepper>
+    <mat-step>
+      <ng-template matStepLabel>
+        <div class="active-stepper">
+          Configuración
+        </div>
+      </ng-template>
+
+      <form #form="ngForm" class="mb-0">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Nombre de la política</label>
+          <input type="email" placeholder="Nombre" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Importar configuración de otra política</label>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Ninguna</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+
+        <div class="form-group mb-0">
+          <label for="exampleInputEmail1">Descripción</label>
+          <textarea placeholder="Descripción" class="custom-textarea"></textarea>
+        </div>
+
+        <div class="button-container">
+          <ion-button color="primary">Continuar</ion-button>
+          <ion-button color="danger">Cancelar</ion-button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>
+        <div class="inactive-stepper">
+          Categorías
+        </div>
+      </ng-template>
+      <app-categories-table></app-categories-table>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>
+        <div class="inactive-stepper">
+          Asignación
+        </div>
+      </ng-template>
+      <app-users-assignment></app-users-assignment>
+    </mat-step>
+
+  </mat-vertical-stepper>
+</ion-content>

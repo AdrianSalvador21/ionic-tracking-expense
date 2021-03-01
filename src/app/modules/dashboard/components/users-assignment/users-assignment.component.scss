@@ -1,0 +1,37 @@
+
+.user-assg-card {
+  padding: 0.8rem;
+
+  h5 {
+    font-size: 14px !important;
+    font-weight: 500;
+  }
+
+  h6 {
+    font-size: 1rem;
+    color: #06a682 !important;
+    font-weight: 500;
+    margin-bottom: 0 !important;
+  }
+}
+
+.user-assg-img-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 0.8rem;
+
+  p {
+    margin-left: 10px !important;
+    font-weight: 500;
+    font-size: 15px;
+  }
+}
+
+.user-assg-img {
+  border: solid transparent 1px;
+  cursor: pointer;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+}

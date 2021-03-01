@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "465716894168",
+    "project_id": "expense-reports-mobile",
+    "storage_bucket": "expense-reports-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:465716894168:android:a5330ccf16554d57e73aad",
+        "android_client_info": {
+          "package_name": "com.adriansalvador.arelapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "465716894168-cln4dbj5rqudjpcfjiu0i4jjbkjhdk64.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUE8FvsSzx9GmpqKnhkl7rqZWP_-S3H9g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "465716894168-cln4dbj5rqudjpcfjiu0i4jjbkjhdk64.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "465716894168-fcp69pmfnqvuldj6r952naoqu6378b57.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arel.expensereports"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

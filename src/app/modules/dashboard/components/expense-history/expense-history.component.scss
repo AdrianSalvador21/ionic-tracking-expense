@@ -1,0 +1,88 @@
+.about {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.about .experiences .experience {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: nowrap;
+  flex-flow: nowrap;
+  position: relative;
+}
+
+.about .experiences .experience .experience__organization {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #000000;
+  line-height: 1.8;
+  width: 26%;
+  text-align: right;
+  word-break: break-all;
+}
+
+.about .experiences .experience .experience__time {
+  width: 2px;
+  margin: 23px 11px 0 20px;
+  background-color: #2cb59a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.about .experiences .experience .experience__time:before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: #00a482;
+  position: absolute;
+  top: 7px;
+  border-radius: 50%;
+
+
+
+  /* background-color: #00a482;
+  position: absolute;
+  top: 2px;
+  border-radius: 50%;
+  font-family: "Font Awesome 5 Free";
+  content: "\f095";
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 20px;
+  width: 20px;
+  font-size: 8px;
+   */
+}
+
+.about .experiences .experience:last-of-type .experience__time, .about .bar .progress, .testimonials .testimonial .testimonial__quote p:after {
+  background-color: transparent;
+}
+
+.experience__info {
+  margin-left: 8px;
+  min-height: 6rem;
+}
+
+.experience__jobtitle {
+  font-size: 13px;
+}
+
+.history-box {
+  border: 1px solid #ced4da;
+  border-radius: 20px;
+  padding: 15px 15px 5px 15px;
+  min-height: 55vh;
+  max-height: 55vh;
+  overflow: scroll;
+}
+

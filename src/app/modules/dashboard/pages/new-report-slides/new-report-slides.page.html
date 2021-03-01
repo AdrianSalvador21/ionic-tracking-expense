@@ -1,0 +1,61 @@
+<ion-content color="secondary">
+
+    <ion-header class="ion-no-border" mode="md">
+        <ion-toolbar color="secondary">
+            <ion-buttons slot="start">
+                <ion-back-button (click)="closeModal()" defaultHref="/dashboard-tabs-menu/reports" color="primary"></ion-back-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-slides #slidess pager="ios" class="slide-full" [options]="{onlyExternal: false, pagination: true}">
+
+
+        <ion-slide style="display: flex; align-items: flex-start;">
+            <ion-card mode="ios" color="secondary">
+                <img src="/assets/images/public/branding/icon.svg" class="slide-image" />
+
+                <ion-card-header style="padding-bottom: 0 !important;">
+                    <ion-card-subtitle color="tertiary">Titulo del reporte</ion-card-subtitle>
+                </ion-card-header>
+
+                <div class="container" style="padding-right: 32px; padding-left: 32px; margin-top: -1.5rem;">
+                    <mat-form-field class="w-100">
+                        <mat-label style="color: #1e2642">Nombre</mat-label>
+                        <input style="color: #1e2642" matInput [(ngModel)]="reportBasicData.title" name="title" placeholder="Nombre" required>
+                    </mat-form-field>
+                </div>
+
+                <button class="btn next-button" (click)="nextStep()">Siguiente</button>
+
+            </ion-card>
+        </ion-slide>
+
+
+
+        <ion-slide style="display: flex; align-items: flex-start;">
+            <ion-card color="secondary" mode="ios">
+                <img src="/assets/images/public/branding/icon.svg" class="slide-image" />
+
+                <ion-card-header style="padding-bottom: 0 !important;">
+                    <ion-card-subtitle color="primary">Aprobador</ion-card-subtitle>
+                </ion-card-header>
+
+                <div class="container" style="padding-right: 32px; padding-left: 32px; margin-top: -1.5rem; margin-bottom: 2rem">
+                    <ion-select [(ngModel)]="reportBasicData.approver" name="approver" placeholder="Aprobador" interface="action-sheet" mode="md" style="border-bottom: 1px solid #1e2642; text-align: start !important; padding: 10px 0 7px 2px; color: #1e2642;">
+                        <ion-select-option class="my-custom-interface" *ngFor="let approver of approvers;" [value]="approver.id" style="font-size: 14px !important;">
+                            {{approver.name}} {{approver.apellidoPaterno}}
+                        </ion-select-option>
+                    </ion-select>
+                </div>
+
+                <button class="btn next-button" (click)="nextStep(true)">Crear</button>
+
+            </ion-card>
+        </ion-slide>
+
+
+    </ion-slides>
+
+
+</ion-content>

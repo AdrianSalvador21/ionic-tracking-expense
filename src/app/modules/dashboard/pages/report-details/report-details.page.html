@@ -1,0 +1,386 @@
+<ion-header class="ion-no-border" mode="md">
+    <ion-toolbar color="secondary">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/dashboard-tabs-menu/newReport" color="primary"></ion-back-button>
+            <!-- <ion-back-button [routerLink]="['/dashboard-tabs-menu/newReport']" color="primary"></ion-back-button> -->
+        </ion-buttons>
+
+        <ion-title>Reporte</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content color="light">
+
+    <ion-card color="secondary" class="basic-card mt-2r">
+        <div style="padding-left: 16px;padding-right: 16px;padding-top: 13px;">
+            <div class="report-detail-title">
+                <div>
+                    <ion-text color="tertiary">
+                        <h3>{{reportValues['Título']}}</h3>
+                    </ion-text>
+                    <ion-text color="tertiary">Del {{reportValues['Fecha de inicio del viaje'] | date: 'dd/MM/yyyy'}} al {{reportValues['Fecha de termino del viaje'] | date: 'dd/MM/yyyy'}}</ion-text>
+                </div>
+                <!-- <mat-icon style="font-size: 1.5rem;height: 1.5rem; width: 1.5rem; font-weight: 300; color: black;">more_vert</mat-icon> -->
+            </div>
+
+            <div class="report-detail-list-item main-item">
+                <p>Monto Gastado</p>
+                <p>${{montoTotal | number: '1.0-2'}}</p>
+            </div>
+
+            <div class="report-detail-list-item">
+                <p>Gastos en el reporte</p>
+                <p>{{expenses.length}}</p>
+            </div>
+
+            <div class="report-detail-list-item">
+                <p>Gastos sin factura</p>
+                <p>{{noFactura}}</p>
+            </div>
+
+            <div class="report-detail-list-item">
+                <p>Gastos sin ticket</p>
+                <p>{{noTicket}}</p>
+            </div>
+
+            <div class="report-detail-list-item">
+                <p>Aprobador del reporte</p>
+                <ion-text color="primary">
+                    <p>{{reportData?.approver?.name}} {{reportData?.approver?.apellidoPaterno}}</p>
+                </ion-text>
+            </div>
+
+            <!-- <div class="report-detail-list-item">
+        <p>Proyecto</p>
+        <p>Nueva planta en Tuxpan</p>
+      </div> -->
+
+            <div class="mt-2" style="display: flex; justify-content: space-between;">
+                <div *ngIf="reportData.reportStatus != 'InProgress'"></div>
+                <ion-button *ngIf="reportData.reportStatus == 'InProgress'" class="new-report-button primary" (click)="requestApproval()">Mandar a Aprobación</ion-button>
+                <div>
+                    <img (click)="downloadPdf()" src="/assets/images/dashboard/pdf.svg" style="height: 18px; margin-right: 13px;" alt="amortization table download">
+                    <img src="/assets/images/dashboard/excel.svg" (click)="downloadExcel()" style="height: 18px;" alt="amortization table download">
+                </div>
+            </div>
+
+            <hr class="basic-hr" />
+        </div>
+
+        <div>
+            <!--
+            <div class="report-chips-container">
+                <p>Ordenar por:</p>
+
+                <mat-chip-list #chipList aria-label="Fruit selection">
+                    <mat-chip *ngFor="let filter of filters" [selectable]="selectable" [removable]="removable" (removed)="remove(filter)">
+                        {{filter.name}}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                    </mat-chip>
+
+                </mat-chip-list>
+            </div>-->
+            <div class="report-detail-container" *ngIf="expenses.length !== 0" style="padding-bottom:4.5rem;">
+                <div class="report-expense-container w-100" *ngFor="let expense of expenses, let i = index" (click)="goToExpenseDetail(expense)">
+                    <div class="detail">
+                        <div>
+                            <ion-text color="tertiary">{{expense.categoryName}}</ion-text>
+                            <ion-text color="tertiary">
+                                <h3>{{expense.expenseValues['Comerciante']}}</h3>
+                            </ion-text>
+                        </div>
+                        <ion-text color="tertiary">
+                            <p class="amount">${{expense.expenseValues['Monto'] | number: '1.0-2'}}</p>
+                        </ion-text>
+                    </div>
+                    <ion-text color="tertiary">
+                        <p>{{expense.expenseValues['Fecha'] | date: 'dd/MM/yyyy'}}</p>
+                    </ion-text>
+                    <hr class="basic-hr" />
+                    <div class="actions-container display-center" style="justify-content: flex-end !important;">
+                        <!-- <ion-icon name="alert-circle-outline" (click)="goToExpenseDetail(expense)" class="cursor-pointer" style="font-size: 1.3rem; height: 1.3rem; width: 1.3rem; margin-right: 0.2rem; font-weight: 500; margin-left: 0.2rem;"></ion-icon> -->
+                        <mat-icon *ngIf="expense.idFactura !== 0" color="tertiary" class="cursor-pointer" style="font-size: 1.2rem;height: 1.2rem; width: 1.2rem; margin-right: 0.5rem; font-weight: 500; margin-left: 0.2rem; color:grey;">
+                            mail_outline</mat-icon>
+                        <mat-icon *ngIf="expense.ticket !== null" color="tertiary" class="cursor-pointer" style="font-size: 1.2rem;height: 1.2rem; width: 1.2rem; margin-right: 0.2rem; font-weight: 500; margin-left: 0.2rem; color:grey;">
+                            description</mat-icon>
+                    </div>
+                </div>
+            </div>
+
+            <div class="report-detail-container" *ngIf="expenses.length === 0">
+                <div class="report-expense-container w-100">
+                    <p class="mb-0 text-muted" style="text-align: center;">Aún no tienes gastos agregados</p>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <!-- ALERTS -->
+            <!--  <mat-tab label="Alertas">
+          <div class="report-chips-container">
+            <p>Ordenar por:</p>
+            <mat-chip-list #chipList aria-label="Fruit selection">
+              <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
+                        [removable]="removable" (removed)="remove(fruit)">
+                {{fruit.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+            </mat-chip-list>
+          </div>
+
+          <div class="report-detail-container" style="padding-bottom: 1rem;">
+            <p class="report-section-chip">Facturas mal emitidas</p>
+            <div class="report-expense-container mb-0 w-100" *ngFor="let item of [1,1], let i = index">
+              <div class="detail">
+                <div>
+                  <p>Alimentos</p>
+                  <h3>Sanborns</h3>
+                </div>
+                <p class="amount">$300</p>
+              </div>
+              <p>18 ago 2020, 3:30PM</p>
+              <hr class="basic-hr"/>
+              <div class="actions-container display-center" style="justify-content: flex-end; !important;">
+                <ion-icon name="alert-circle-outline" (click)="goToExpenseDetail(item)" class="cursor-pointer" style="font-size: 1.3rem; height: 1.3rem; width: 1.3rem; margin-right: 0.2rem; font-weight: 500; margin-left: 0.2rem;"></ion-icon>
+                <div class="display-center" style="position: relative;">
+                  <ion-icon name="mail-open-outline" (click)="goToExpenseDetail(item)" class="cursor-pointer" style="font-size: 1.3rem;height: 1.3rem; width: 1.3rem; margin-right: 0.2rem; font-weight: 500; margin-left: 0.4rem;"></ion-icon>
+                  <div class="notification-position">{{5}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="report-detail-container" style="padding-bottom: 1rem;">
+            <p class="report-section-chip">EFOS</p>
+            <div class="report-expense-container mb-0 w-100" *ngFor="let item of [1,1], let i = index">
+              <div class="detail">
+                <div>
+                  <p>Alimentos</p>
+                  <h3>Empresa Fantasma 1</h3>
+                </div>
+                <p class="amount">$300</p>
+              </div>
+              <p>18 ago 2020, 3:30PM</p>
+              <hr class="basic-hr"/>
+              <div class="actions-container display-center" style="justify-content: flex-end; !important;">
+                <ion-icon name="alert-circle-outline" (click)="goToExpenseDetail(item)" class="cursor-pointer" style="font-size: 1.3rem; height: 1.3rem; width: 1.3rem; margin-right: 0.2rem; font-weight: 500; margin-left: 0.2rem;"></ion-icon>
+                <div class="display-center" style="position: relative;">
+                  <ion-icon name="mail-open-outline" (click)="goToExpenseDetail(item)" class="cursor-pointer" style="font-size: 1.3rem;height: 1.3rem; width: 1.3rem; margin-right: 0.2rem; font-weight: 500; margin-left: 0.4rem;"></ion-icon>
+                  <div class="notification-position">{{5}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="report-detail-container" style="padding-bottom: 5rem;">
+            <p class="report-section-chip">Exceden gasto diario</p>
+            <div class="report-expense-container mb-0 w-100" *ngFor="let item of [1,1], let i = index">
+              <div class="detail">
+                <div>
+                  <p>Alimentos</p>
+                  <h3>Superama</h3>
+                </div>
+                <p class="amount">$300</p>
+              </div>
+              <p>18 ago 2020, 3:30PM</p>
+              <hr class="basic-hr"/>
+              <div class="actions-container display-center" style="justify-content: flex-end; !important;">
+                <ion-icon name="alert-circle-outline" (click)="goToExpenseDetail(item)" class="cursor-pointer" style="font-size: 1.3rem; height: 1.3rem; width: 1.3rem; margin-right: 0.2rem; font-weight: 500; margin-left: 0.2rem;"></ion-icon>
+                <div class="display-center" style="position: relative;">
+                  <ion-icon name="mail-open-outline" (click)="goToExpenseDetail(item)" class="cursor-pointer" style="font-size: 1.3rem;height: 1.3rem; width: 1.3rem; margin-right: 0.2rem; font-weight: 500; margin-left: 0.4rem;"></ion-icon>
+                  <div class="notification-position">{{5}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+
+        -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- CATEGORIES -->
+            <!-- <mat-tab label="Categoría">
+          <div class="report-chips-container">
+            <p>Ordenar por:</p>
+            <mat-chip-list #chipList aria-label="Fruit selection">
+              <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
+                        [removable]="removable" (removed)="remove(fruit)">
+                {{fruit.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+            </mat-chip-list>
+          </div>
+
+          <div class="report-close-detail-container" *ngIf="showCategoryDetail">
+            <div class="close-detail">
+              <mat-icon (click)="showDetail(false)">remove</mat-icon>
+            </div>
+          </div>
+
+          <div style="padding-bottom: 7rem !important;" *ngIf="!showCategoryDetail">
+            <div class="report-detail-container">
+              <div class="report-expense-container w-100" *ngFor="let category of categories, let i = index">
+                <div class="w-100 category-container">
+                  <h3>{{category.name}}</h3>
+                  <mat-icon *ngIf="getCategoryAmount(category.id) !== 0" (click)="showDetail(true, category.id)" style="font-size: 1.5rem;height: 1.5rem; width: 1.5rem; font-weight: 300; color: black;">add</mat-icon>
+                </div>
+
+                <div class="w-100 category-container">
+                  <p>Gasto total</p>
+                  <p>${{getCategoryAmount(category.id) | number: '1.0-2'}}</p>
+                </div>
+
+                <div class="w-100 category-container">
+                  <p>Excede política</p>
+                  <p class="danger">$0</p>
+                </div>
+
+                <div class="w-100 category-container">
+                  <p>No facturable</p>
+                  <p class="danger">$0</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div *ngIf="showCategoryDetail && subExpenses.length !== 0" styles="background-color: #ececec;">
+            <div class="report-detail-container animate__animated" style="padding-bottom: 5rem;">
+              <p class="report-section-chip">Gastos</p>
+              <div class="report-expense-container mb-0 w-100" *ngFor="let expense of subExpenses, let i = index">
+                <div class="detail">
+                  <div>
+                    <p>{{expense.categoryName}}</p>
+                    <h3>{{expense.expenseValues['Comerciante']}}</h3>
+                  </div>
+                  <p class="amount">${{expense.expenseValues['Monto'] | number: '1.0-2'}}</p>
+                </div>
+                <p>{{expense.expenseValues['Fecha'] | date: 'dd/MM/yyyy'}}</p>
+                <hr class="basic-hr"/>
+                <div class="actions-container display-center" style="justify-content: flex-end; !important;">
+                  <ion-icon name="alert-circle-outline" (click)="goToExpenseDetail(expense)" class="cursor-pointer" style="font-size: 1.3rem; height: 1.3rem; width: 1.3rem; margin-right: 0.2rem; font-weight: 500; margin-left: 0.2rem;"></ion-icon>
+                  <div class="display-center" style="position: relative;">
+                    <ion-icon name="mail-open-outline" (click)="goToExpenseDetail(expense)" class="cursor-pointer" style="font-size: 1.3rem;height: 1.3rem; width: 1.3rem; margin-right: 0.2rem; font-weight: 500; margin-left: 0.4rem;"></ion-icon>
+                    <div class="notification-position">{{5}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="report-detail-container animate__animated" style="padding-bottom: 1rem;" *ngIf="false">
+              <p class="report-section-chip">Facturas mal emitidas</p>
+              <div class="report-expense-container mb-0 w-100" *ngFor="let item of [1,1], let i = index">
+                <div class="detail">
+                  <div>
+                    <p>Alimentos</p>
+                    <h3>Sanborns</h3>
+                  </div>
+                  <p class="amount">$300</p>
+                </div>
+                <p>18 ago 2020, 3:30PM</p>
+                <hr class="basic-hr"/>
+                <div class="actions-container display-center" style="justify-content: flex-end; !important;">
+                  <ion-icon name="alert-circle-outline" (click)="goToExpenseDetail(item)" class="cursor-pointer" style="font-size: 1.3rem; height: 1.3rem; width: 1.3rem; margin-right: 0.2rem; font-weight: 500; margin-left: 0.2rem;"></ion-icon>
+                  <div class="display-center" style="position: relative;">
+                    <ion-icon name="mail-open-outline" (click)="goToExpenseDetail(item)" class="cursor-pointer" style="font-size: 1.3rem;height: 1.3rem; width: 1.3rem; margin-right: 0.2rem; font-weight: 500; margin-left: 0.4rem;"></ion-icon>
+                    <div class="notification-position">{{5}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="report-detail-container" style="padding-bottom: 1rem;" *ngIf="false">
+              <p class="report-section-chip">EFOS</p>
+              <div class="report-expense-container mb-0 w-100" *ngFor="let item of [1,1], let i = index">
+                <div class="detail">
+                  <div>
+                    <p>Alimentos</p>
+                    <h3>Empresa Fantasma 1</h3>
+                  </div>
+                  <p class="amount">$300</p>
+                </div>
+                <p>18 ago 2020, 3:30PM</p>
+                <hr class="basic-hr"/>
+                <div class="actions-container display-center" style="justify-content: flex-end; !important;">
+                  <ion-icon name="alert-circle-outline" (click)="goToExpenseDetail(item)" class="cursor-pointer" style="font-size: 1.3rem; height: 1.3rem; width: 1.3rem; margin-right: 0.2rem; font-weight: 500; margin-left: 0.2rem;"></ion-icon>
+                  <div class="display-center" style="position: relative;">
+                    <ion-icon name="mail-open-outline" (click)="goToExpenseDetail(item)" class="cursor-pointer" style="font-size: 1.3rem;height: 1.3rem; width: 1.3rem; margin-right: 0.2rem; font-weight: 500; margin-left: 0.4rem;"></ion-icon>
+                    <div class="notification-position">{{5}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="report-detail-container" style="padding-bottom: 5rem;" *ngIf="false">
+              <p class="report-section-chip">Exceden gasto diario</p>
+              <div class="report-expense-container mb-0 w-100" *ngFor="let item of [1,1], let i = index">
+                <div class="detail">
+                  <div>
+                    <p>Alimentos</p>
+                    <h3>Superama</h3>
+                  </div>
+                  <p class="amount">$300</p>
+                </div>
+                <p>18 ago 2020, 3:30PM</p>
+                <hr class="basic-hr"/>
+                <div class="actions-container display-center" style="justify-content: flex-end; !important;">
+                  <ion-icon name="alert-circle-outline" (click)="goToExpenseDetail(item)" class="cursor-pointer" style="font-size: 1.3rem; height: 1.3rem; width: 1.3rem; margin-right: 0.2rem; font-weight: 500; margin-left: 0.2rem;"></ion-icon>
+                  <div class="display-center" style="position: relative;">
+                    <ion-icon name="mail-open-outline" (click)="goToExpenseDetail(item)" class="cursor-pointer" style="font-size: 1.3rem;height: 1.3rem; width: 1.3rem; margin-right: 0.2rem; font-weight: 500; margin-left: 0.4rem;"></ion-icon>
+                    <div class="notification-position">{{5}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </mat-tab> -->
+        </div>
+    </ion-card>
+
+    <!--<div class="row button-container-fixed">
+    <div class="col-12 text-center m-t-20-r display-center">
+      <button class="btn upload-button" id="preapproval_start">
+        Subir reporte
+      </button>
+    </div>
+  </div> -->
+
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" style="margin-bottom: 4rem !important;" *ngIf="reportData.reportStatus !== 'Approved'">
+
+        <ion-fab-button>
+            <ion-icon name="add-outline"></ion-icon>
+        </ion-fab-button>
+
+        <ion-fab-list side="top">
+            <ion-fab-button class="option-button" data-desc="Nuevo Gasto" (click)="newExpense()">
+                <ion-icon name="reader-outline"></ion-icon>
+            </ion-fab-button>
+        </ion-fab-list>
+
+    </ion-fab>
+
+</ion-content>

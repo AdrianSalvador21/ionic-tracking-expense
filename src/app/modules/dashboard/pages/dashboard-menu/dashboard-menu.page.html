@@ -1,0 +1,112 @@
+<ion-split-pane when="md" contentId="main">
+
+    <ion-menu side="start" menuId="first" contentId="main">
+        <ion-header mode="md">
+            <ion-toolbar color="primary">
+                <div class="menu-toolbar-container">
+
+                    <div class="menu-img-container">
+                        <ion-img src="assets/images/public/branding/logo-white.svg"></ion-img>
+                    </div>
+
+
+                    <div class="display-flex" style="margin-top: 20px">
+                        <ion-avatar class="menu-img">
+                            <ion-img src="/assets/images/public/user.png"></ion-img>
+                        </ion-avatar>
+                        <div class="menu-info-container">
+                            <p class="m-0">Adrian Salvador</p>
+                            <span>adrian@correo.com</span>
+                        </div>
+                    </div>
+                </div>
+            </ion-toolbar>
+        </ion-header>
+
+        <ion-content>
+            <mat-nav-list class="paddingless">
+                <div>
+                    <mat-list-item routerLink="/users/dashboard" class="responsive">
+                        <div class="sidenav-item display-flex">
+                            <mat-icon style="font-size: 1.1rem;height: 1.1rem; width: 1.1rem; margin-right: 0.5rem; font-weight: 300; color: #00a482;">home</mat-icon>
+                            <span style="font-size: 0.9rem; font-weight: 300;">Inicio</span>
+                        </div>
+                    </mat-list-item>
+
+                    <ion-menu-toggle>
+                        <mat-list-item  routerLink="/dashboard-menu/reports" class="responsive">
+                            <div class="sidenav-item display-flex">
+                                <mat-icon style="font-size: 1.1rem;height: 1.1rem; width: 1.1rem; margin-right: 0.5rem; font-weight: 300; color: #00a482;">insert_drive_file</mat-icon>
+                                <span style="font-size: 0.9rem; font-weight: 300;">Reportes</span>
+                            </div>
+                        </mat-list-item>
+                    </ion-menu-toggle>
+
+                    <mat-accordion>
+                        <mat-expansion-panel style="margin-top: 0 !important; margin-bottom: 0 !important; box-shadow: none !important; border-radius: 0; !important;">
+                            <mat-expansion-panel-header style="padding: 0 1rem !important;" class="active">
+                                <mat-panel-title style="display: flex; align-items: center;">
+                                    <mat-icon style="font-size: 1.1rem;height: 1.1rem; width: 1.1rem; margin-right: 0.5rem; font-weight: 300; color: #00a482;">folder</mat-icon>
+                                    <span style="font-size: 0.9rem; font-weight: 300;">Políticas</span>
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+
+
+                            <ion-menu-toggle>
+                                <mat-list-item routerLink="/dashboard-menu/expense-policies" class="responsive">
+                                    <div class="sidenav-item display-flex">
+                                        <mat-icon style="font-size: 1.1rem;height: 1.1rem; width: 1.1rem; margin-right: 0.5rem; font-weight: 300; color: #00a482;">arrow_right</mat-icon>
+                                        <span style="font-size: 0.9rem; font-weight: 300;">Mis políticas</span>
+                                    </div>
+                                </mat-list-item>
+                            </ion-menu-toggle>
+
+                            <ion-menu-toggle>
+                                <mat-list-item routerLink="/dashboard-menu/add-expense-policy" class="responsive">
+                                    <div class="sidenav-item display-flex">
+                                        <mat-icon style="font-size: 1.1rem;height: 1.1rem; width: 1.1rem; margin-right: 0.5rem; font-weight: 300; color: #00a482;">arrow_right</mat-icon>
+                                        <span style="font-size: 0.9rem; font-weight: 300;">Nueva política</span>
+                                    </div>
+                                </mat-list-item>
+                            </ion-menu-toggle>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+
+                    <mat-list-item routerLink="/users/dashboard" class="responsive hide-for-medium">
+                        <div class="sidenav-item display-flex">
+                            <mat-icon style="font-size: 1.1rem;height: 1.1rem; width: 1.1rem; margin-right: 0.5rem; font-weight: 300; color: #00a482;">notification_important</mat-icon>
+                            <span style="font-size: 0.9rem; font-weight: 300;">Notificaciones</span>
+                        </div>
+                    </mat-list-item>
+
+                    <mat-list-item routerLink="/users/dashboard" class="responsive hide-for-medium">
+                        <div class="sidenav-item display-flex">
+                            <mat-icon style="font-size: 1.1rem;height: 1.1rem; width: 1.1rem; margin-right: 0.5rem; font-weight: 300; color: #00a482;">dashboard</mat-icon>
+                            <span style="font-size: 0.9rem; font-weight: 300;">Dashboard</span>
+                        </div>
+                    </mat-list-item>
+
+                    <mat-list-item routerLink="/users/dashboard" class="responsive hide-for-medium">
+                        <div class="sidenav-item display-flex">
+                            <mat-icon style="font-size: 1.1rem;height: 1.1rem; width: 1.1rem; margin-right: 0.5rem; font-weight: 300; color: #00a482;">build</mat-icon>
+                            <span style="font-size: 0.9rem; font-weight: 300;">Configuración</span>
+                        </div>
+                    </mat-list-item>
+
+                    <mat-list-item routerLink="/users/dashboard" class="responsive hide-for-medium">
+                        <div class="sidenav-item display-flex">
+                            <mat-icon style="font-size: 1.1rem;height: 1.1rem; width: 1.1rem; margin-right: 0.5rem; font-weight: 300; color: #00a482;">login</mat-icon>
+                            <span style="font-size: 0.9rem; font-weight: 300;">Cerrar sesión</span>
+                        </div>
+                    </mat-list-item>
+                </div>
+            </mat-nav-list>
+
+        </ion-content>
+    </ion-menu>
+
+
+    <ion-router-outlet id="main"></ion-router-outlet>
+
+</ion-split-pane>
+

@@ -1,0 +1,86 @@
+<ion-header class="ion-no-border" mode="md">
+    <ion-toolbar color="secondary">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/dashboard-tabs-menu/reports" color="primary"></ion-back-button>
+        </ion-buttons>
+
+        <ion-title slot="end">
+            <img style="width: 4rem;" alt="logo" src="assets/images/public/branding/logo.svg" />
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="">
+    <div class="nr-container">
+        <ion-text color="primary">
+            <h2 class="nr-title w-100">Crea un reporte</h2>
+        </ion-text>
+        <ion-text color="tertiary">
+            <h4 class="nr-subtitle">Llena los campos para crearlo</h4>
+        </ion-text>
+        <!-- <div class="w-100 mt-2r">
+      <form class="example-form mt-2r">
+        <mat-form-field class="w-100">
+          <mat-label>Titulo del reporte</mat-label>
+          <input matInput placeholder="Titulo del reporte" value="Primer reporte" required>
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+          <mat-label>Anticipo</mat-label>
+          <input matInput currencyMask placeholder="Anticipo" name="amount" [(ngModel)]="amount" required>
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+          <mat-label>Escoja la política</mat-label>
+          <mat-select name="policy" [(ngModel)]="basicSelected" required>
+            <mat-option value="">1</mat-option>
+            <mat-option value="2">2</mat-option>
+            <mat-option value="3">3</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+          <mat-label>Aprobador del reporte</mat-label>
+          <mat-select name="reportApprover" [(ngModel)]="basicSelected" required>
+            <mat-option value="" >1</mat-option>
+            <mat-option value="2">2</mat-option>
+            <mat-option value="3">3</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+          <mat-label>Cliente a visitar</mat-label>
+          <input matInput placeholder="Cliente a visitar" value="Juan Hernández" required>
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+          <mat-label>Nombre del proyector</mat-label>
+          <input matInput placeholder="Nombre del proyecto" value="Restructuración de ..." required>
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+          <mat-label>Duración de viaje de negocios</mat-label>
+          <input matInput placeholder="Nombre del proyecto" value="15 días" required>
+        </mat-form-field>
+      </form>
+    </div>
+    -->
+
+        <div *ngIf="showForm">
+            <div class="">
+                <div class="">
+                    <div class="w-100">
+                        <app-dynamic-form [showApprover]="true" [fields]="formData" [reportBasicData]="reportBasicData" (submit)="addReport($event)" [showMb]="true">
+                        </app-dynamic-form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="button-container display-center mt-0">
+      <ion-button class="new-report-button primary" (click)="goToDetail()">Aceptar</ion-button>
+      <ion-button class="new-report-button secondary mr-0" (click)="goToReports()">Cancelar</ion-button>
+    </div> -->
+
+    </div>
+</ion-content>

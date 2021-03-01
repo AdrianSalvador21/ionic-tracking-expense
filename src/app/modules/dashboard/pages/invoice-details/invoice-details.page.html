@@ -1,0 +1,180 @@
+<ion-header class="ion-no-border" mode="md">
+    <ion-toolbar color="secondary">
+        <ion-buttons slot="start">
+            <ion-back-button (click)="closeModal()" defaultHref="/dashboard-tabs-menu/invoices" color="primary"></ion-back-button>
+        </ion-buttons>
+
+        <ion-title>Factura</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary">
+    <div class="expense-detail-title">
+        <div>
+            <ion-text color="tertiary">
+                <h3>{{data.emisor.nombre | titlecase}}</h3>
+            </ion-text>
+            <ion-text color="tertiary">
+                <p>{{data.fechaTimbrado | date: 'dd/MM/yyyy'}} a las {{data.fechaTimbrado | date: 'shortTime'}}</p>
+            </ion-text>
+        </div>
+
+        <!--<mat-icon style="font-size: 1.5rem;height: 1.5rem; width: 1.5rem; font-weight: 300; color: black;">more_vert</mat-icon>-->
+    </div>
+
+    <div class="mt-2r">
+        <div class="mt-2r mb-5">
+
+
+            <!-- Alertas
+      <div class="expense-detail-card">
+        <div>
+          <h4 class="main-title">Alertas</h4>
+        </div>
+        <div>
+          <h4>RFC mal escrito</h4>
+        </div>
+        <hr class="basic-hr" />
+      </div>
+      -->
+
+
+
+
+
+
+            <div class="expense-detail-card">
+                <div>
+                    <h4 class="main-title">Datos de la factura</h4>
+                </div>
+
+
+                <div>
+                    <ion-text color="tertiary">
+                        <h4 style="font-weight: 700;">Importe total</h4>
+                    </ion-text>
+                    <ion-text color="tertiary">
+                        <p class="mb-0">${{data.subTotal | number: '1.1-2'}}</p>
+                    </ion-text>
+                </div>
+
+                <div>
+                    <ion-text color="tertiary">
+                        <h4 style="font-weight: 700;">Lugar de expedición</h4>
+                    </ion-text>
+                    <ion-text color="tertiary">
+                        <p class="mb-0">Veracruz 156, Lomas</p>
+                    </ion-text>
+                </div>
+
+                <div>
+                    <ion-text color="tertiary">
+                        <h4 style="font-weight: 700;">Fecha de expedición</h4>
+                    </ion-text>
+                    <ion-text color="tertiary">
+                        <p class="mb-0">{{data.fechaTimbrado | date: 'dd/MM/yyyy'}}</p>
+                    </ion-text>
+                </div>
+
+                <div>
+                    <ion-text color="tertiary">
+                        <h4 style="font-weight: 700;">Certificado Sello Digital</h4>
+                    </ion-text>
+                    <ion-text color="tertiary">
+                        <p class="mb-0">{{data.noCertificadoSAT}}</p>
+                    </ion-text>
+                </div>
+
+                <div>
+                    <ion-text color="tertiary">
+                        <h4 style="font-weight: 700;">Valor unitario</h4>
+                    </ion-text>
+                    <ion-text color="tertiary">
+                        <p class="mb-0">1.00</p>
+                    </ion-text>
+                </div>
+
+                <div>
+                    <ion-text color="tertiary">
+                        <h4 style="font-weight: 700;">Método de pago</h4>
+                    </ion-text>
+                    <ion-text color="tertiary">
+                        <p class="mb-0">{{data.metodoPago}}</p>
+                    </ion-text>
+                </div>
+            </div>
+
+            <div class="expense-detail-card">
+                <div>
+                    <h4 class="main-title">Datos del emisor</h4>
+                </div>
+
+
+                <div>
+                    <ion-text color="tertiary">
+                        <h4 style="font-weight: 700;">RFC</h4>
+                    </ion-text>
+                    <ion-text color="tertiary">
+                        <p class="mb-0">{{data.emisor.rfc | uppercase}}</p>
+                    </ion-text>
+                </div>
+
+                <div>
+                    <ion-text color="tertiary">
+                        <h4 style="font-weight: 700;">Domicilio Fiscal</h4>
+                    </ion-text>
+                    <ion-text color="tertiary">
+                        <p class="mb-0">Veracruz 156, Lomas</p>
+                    </ion-text>
+                </div>
+
+                <div>
+                    <ion-text color="tertiary">
+                        <h4 style="font-weight: 700;">Régimen Fiscal</h4>
+                    </ion-text>
+                    <ion-text color="tertiary">
+                        <p class="mb-0">{{data.emisor.regimenFiscal}}</p>
+                    </ion-text>
+                </div>
+            </div>
+
+            <div class="expense-detail-card" style="margin-bottom: 8rem;">
+                <div>
+                    <h4 class="main-title">Datos del receptor</h4>
+                </div>
+
+                <div>
+                    <ion-text color="tertiary">
+                        <h4 style="font-weight: 700;">Nombre</h4>
+                    </ion-text>
+                    <ion-text color="tertiary">
+                        <p class="mb-0">{{data.receptor.nombre | titlecase}}</p>
+                    </ion-text>
+                </div>
+
+                <div>
+                    <ion-text color="tertiary">
+                        <h4 style="font-weight: 700;">RFC</h4>
+                    </ion-text>
+                    <ion-text color="tertiary">
+                        <p class="mb-0">{{data.receptor.rfc | uppercase}}</p>
+                    </ion-text>
+                </div>
+
+                <!-- <div>
+          <h4>Domicilio Fiscal</h4>
+          <p class="mb-0"></p>
+        </div> -->
+            </div>
+
+        </div>
+    </div>
+
+    <!--
+  <div class="row button-container-fixed-bottom">
+    <div class="col-12 text-center m-t-20-r display-center" style="justify-content: space-around;">
+      <ion-button class="new-report-button primary" style="text-transform: capitalize">Agregar gasto</ion-button>
+      <ion-button class="new-report-button primary mr-0" style="text-transform: capitalize">Eliminar</ion-button>
+    </div>
+  </div>-->
+</ion-content>
